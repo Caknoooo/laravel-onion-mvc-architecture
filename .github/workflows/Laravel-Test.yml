@@ -1,0 +1,46 @@
+on: push
+name: Laravel Test
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Cache composer dependencies
+      uses: actions/cache@v2
+      with:
+        path: vendor
+        key: composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          composer-
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.2
+
+    - name: Install composer dependencies
+      run: |
+        composer install --no-scripts
+
+    - name: Prepare Laravel Application
+      run: |
+        cp .env.example .env
+        php artisan key:generate
+
+    - name: Run Test suite
+      run: php artisan test
