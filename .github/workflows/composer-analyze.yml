@@ -36,7 +36,7 @@ jobs:
         run: composer require --dev phpstan/phpstan-phpunit
 
       - name: Install phpstan-banned-code
-        run: composer require --dev phpstan/phpstan-banned-code
+        run: composer require --dev ekino/phpstan-banned-code
 
       - name: Composer Analyze
         run: vendor/bin/phpstan analyze --memory-limit=2G --no-progress --no-interaction --ansi --no-ansi --error-format=github-matcher --level=7 src tests
