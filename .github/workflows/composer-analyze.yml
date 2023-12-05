@@ -1,0 +1,33 @@
+name: Composer Analyze
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  composer-analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+
+      - name: Install Composer
+        run: |
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php
+          php -r "unlink('composer-setup.php');"
+          mv composer.phar /usr/local/bin/composer
+
+      - name: Install Dependencies
+        run: composer install
+
+      - name: Composer Analyze
+        run: vendor/bin/phpstan analyze --memory-limit=2G --no-progress --no-interaction --ansi --no-ansi --error-format=github-matcher --level=7 src tests
