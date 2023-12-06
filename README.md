@@ -1,66 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Onion MVC Architecture
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Prerequisites
 
-## About Laravel
+-   https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
+-   https://getcomposer.org/
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```
+git clone ....
+composer install
+yarn
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Commit Message Convention
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This website follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
-## Learning Laravel
+Commit message will be checked using [husky and commit lint](https://theodorusclarence.com/library/husky-commitlint-prettier), you can't commit if not using the proper convention below.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Format
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+`<type>(optional scope): <description>`
+Example: `feat(pre-event): add speakers section`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Type
 
-## Laravel Sponsors
+Available types are:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   feat → Changes about addition or removal of a feature. Ex: `feat: add table on landing page`, `feat: remove table from landing page`
+-   fix → Bug fixing, followed by the bug. Ex: `fix: illustration overflows in mobile view`
+-   docs → Update documentation (README.md)
+-   style → Updating style, and not changing any logic in the code (reorder imports, fix whitespace, remove comments)
+-   chore → Installing new dependencies, or bumping deps
+-   refactor → Changes in code, same output, but different approach
+-   ci → Update github workflows, husky
+-   test → Update testing suite, cypress files
+-   revert → when reverting commits
+-   perf → Fixing something regarding performance (deriving state, using memo, callback)
+-   vercel → Blank commit to trigger vercel deployment. Ex: `vercel: trigger deployment`
+-   trigger → Using trigger actions
 
-### Premium Partners
+### 2. Optional Scope
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Labels per page Ex: `feat(pre-event): add date label`
 
-## Contributing
+\*If there is no scope needed, you don't need to write it
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Description
 
-## Code of Conduct
+Description must fully explain what is being done.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Add BREAKING CHANGE in the description if there is a significant change.
 
-## Security Vulnerabilities
+**If there are multiple changes, then commit one by one**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   After colon, there are a single space Ex: `feat: add something`
+-   When using `fix` type, state the issue Ex: `fix: file size limiter not working`
+-   Use imperative, and present tense: "change" not "changed" or "changes"
+-   Don't use capitals in front of the sentence
+-   Don't add full stop (.) at the end of the sentence
