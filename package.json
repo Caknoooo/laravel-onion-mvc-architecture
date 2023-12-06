@@ -1,18 +1,19 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "prepare": "husky install"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^18.4.3",
-        "@commitlint/config-conventional": "^18.4.3",
-        "axios": "^1.6.1",
-        "husky": "^8.0.0",
-        "laravel-vite-plugin": "^0.8.0",
-        "lint-staged": "^15.2.0",
-        "prettier": "^3.1.0",
-        "vite": "^4.0.0"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "prepare": "husky install",
+    "prettierrc": "prettier --write ."
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "axios": "^1.6.1",
+    "husky": "^8.0.0",
+    "laravel-vite-plugin": "^0.8.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.0",
+    "vite": "^4.0.0"
+  }
 }
