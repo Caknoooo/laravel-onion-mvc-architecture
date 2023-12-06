@@ -12,7 +12,6 @@ class UserController extends Controller
 {
     public function create(Request $request, RegisterUserService $service)
     {
-        print_r($request->all());
         $request->validate(
             [
             'name' => 'required',

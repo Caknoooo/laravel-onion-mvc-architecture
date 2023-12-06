@@ -5,6 +5,7 @@ namespace App\Core\Domain\Models\User;
 use App\Core\Domain\Models\Email;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use Exception;
 
 class User extends Model
 {
@@ -17,7 +18,7 @@ class User extends Model
     /**
      * @param UserId $id
      * @param string $name
-     * @param string $email
+     * @param Email $email
      * @param string $image_url
      * @param string $hash_pasword
      */

@@ -5,6 +5,7 @@ namespace App\Core\Application\Image;
 use App\Exceptions\UserException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Exception;
 
 class ImageUpload
 {
@@ -18,9 +19,6 @@ class ImageUpload
 
     /**
      * @param UploadedFile $uploaded_file
-     * @param array $available_type
-     * @param array $available_mime_type
-     * @param int $max_size
      * @param string $path
      * @param string $seed
      */
