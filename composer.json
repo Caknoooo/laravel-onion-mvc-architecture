@@ -14,6 +14,7 @@
     "require-dev": {
         "ekino/phpstan-banned-code": "^1.0",
         "fakerphp/faker": "^1.9.1",
+        "friendsofphp/php-cs-fixer": "^3.40",
         "larastan/larastan": "^2.7",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.18",
