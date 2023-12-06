@@ -1,14 +1,28 @@
 # Laravel Onion MVC Architecture
 
+This repository serves as a dedicated space for crafting Laravel Onion templates, adhering to the foundational principles of the Model-View-Controller (MVC) architecture. It is designed to streamline the process of creating organized and scalable web applications. The goal is to provide a focused environment that simplifies the development of well-structured projects within the Laravel framework. By offering this dedicated space, the aim is to enhance efficiency in the development process, resulting in robust and scalable web applications.
+
 # Prerequisites
 
 - https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
 - https://getcomposer.org/
 
 ```
-git clone ....
+git clone .... OR use the template
+
+# Install dependencies
 composer install
 yarn
+```
+
+### Setup configurations
+
+```
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+
+php artisan serve
 ```
 
 ## Commit Message Convention
@@ -37,7 +51,7 @@ Available types are:
 - revert → when reverting commits
 - perf → Fixing something regarding performance (deriving state, using memo, callback)
 - vercel → Blank commit to trigger vercel deployment. Ex: `vercel: trigger deployment`
--   trigger → Using trigger actions
+- trigger → Using trigger actions
 
 ### 2. Optional Scope
 
@@ -58,3 +72,55 @@ Add BREAKING CHANGE in the description if there is a significant change.
 - Use imperative, and present tense: "change" not "changed" or "changes"
 - Don't use capitals in front of the sentence
 - Don't add full stop (.) at the end of the sentence
+
+### 4. Before Commit
+
+to clean code and setup spaces you can see `.prettierrc` for all file except php and `.editorconfig` for php.
+
+on `.prettierrc` -> **all files**
+
+```
+{
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 80,
+  "tabWidth": 2, # change it according to your wishes
+  "trailingComma": "all",
+  "endOfLine": "auto"
+}
+```
+
+on `.editorconfig` -> **php**
+
+```
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2 # change it according to your wishes
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[docker-compose.yml]
+indent_size = 4
+```
+
+#### Run prettier
+
+```
+yarn prettierrc
+```
+
+#### Run editorconfig
+
+```
+composer format
+```
