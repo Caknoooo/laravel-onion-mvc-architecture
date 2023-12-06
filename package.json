@@ -4,7 +4,7 @@
     "dev": "vite",
     "build": "vite build",
     "prepare": "husky install",
-    "prettierrc": "prettier --write ."
+    "prettierrc": "lint-staged"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
@@ -15,5 +15,11 @@
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.0",
     "vite": "^4.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,html,css,scss,json,yml,yaml,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
