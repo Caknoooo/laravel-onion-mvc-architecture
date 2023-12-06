@@ -37,7 +37,7 @@ Available types are:
 - revert → when reverting commits
 - perf → Fixing something regarding performance (deriving state, using memo, callback)
 - vercel → Blank commit to trigger vercel deployment. Ex: `vercel: trigger deployment`
-- trigger → Using trigger actions
+-   trigger → Using trigger actions
 
 ### 2. Optional Scope
 
