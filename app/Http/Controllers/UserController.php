@@ -36,6 +36,25 @@ class UserController extends Controller
         }
         DB::commit();
 
-        return response()->json(['message' => 'success']);
+        return redirect()->route('user.create');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate(
+            [
+            'email' => 'required|email',
+            'password' => 'required',
+      ]
+        );
+
+        $user = DB::table('users')->where('email', $request->input('email'))->first();
+
+        if ($user && $user->password === $request->input('password')) {
+            $request->session()->put('user', $user);
+            return redirect()->route('user.login');
+        }
+
+        return redirect()->route('user.login');
     }
 }
