@@ -26,7 +26,7 @@ class RegisterUserService
     public function execute(RegisterUserRequest $request)
     {
         $registeredUser = $this->user_repository->getUserByEmail($request->getEmail());
-        if($registeredUser) {
+        if ($registeredUser) {
             throw new UserException('email telah terdaftar', 1002, 404);
         }
 
