@@ -6,19 +6,19 @@ use App\Core\Domain\Infrastructure\Interfaces\UserRepositoryInterface;
 use App\Core\Domain\Models\Email;
 use App\Core\Domain\Models\User\User;
 use App\Core\Domain\Models\User\UserId;
-use Illuminate\Support\Facades\DB;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class SqlUserRepository implements UserRepositoryInterface
 {
     public function persist(User $user): void
     {
         DB::table('users')->upsert([
-          'id' => $user->getId()->toString(),
-          'name' => $user->getName(),
-          'email' => $user->getEmail()->toString(),
-          'image_url' => $user->getImageUrl(),
-          'password' => $user->getHashPassword(),
+            'id' => $user->getId()->toString(),
+            'name' => $user->getName(),
+            'email' => $user->getEmail()->toString(),
+            'image_url' => $user->getImageUrl(),
+            'password' => $user->getHashPassword(),
         ], 'id');
     }
 
@@ -67,10 +67,10 @@ class SqlUserRepository implements UserRepositoryInterface
     public function updateUser(User $user): void
     {
         DB::table('users')->where('id', $user->getId()->toString())->update([
-          'name' => $user->getName(),
-          'email' => $user->getEmail(),
-          'image_url' => $user->getImageUrl(),
-          'password' => $user->getHashPassword(),
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'image_url' => $user->getImageUrl(),
+            'password' => $user->getHashPassword(),
         ]);
     }
 

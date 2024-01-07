@@ -3,20 +3,19 @@
 namespace App\Core\Domain\Models;
 
 use App\Exceptions\UserException;
-use Ramsey\Uuid\Uuid;
 use Exception;
+use Ramsey\Uuid\Uuid;
 
 trait UuidTrait
 {
     private ?string $uuid;
 
     /**
-     * @param string $uuid
      * @throws Exception
      */
-    public function __construct(?string $uuid = null)
+    public function __construct(string $uuid = null)
     {
-        if($uuid && !Uuid::isValid($uuid)) {
+        if ($uuid && ! Uuid::isValid($uuid)) {
             UserException::throw('Invalid UUID', 1000, 422);
         }
         $this->uuid = $uuid ?? Uuid::uuid4()->toString();

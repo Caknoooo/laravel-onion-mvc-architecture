@@ -3,25 +3,22 @@
 namespace App\Core\Domain\Models\User;
 
 use App\Core\Domain\Models\Email;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
-use Exception;
 
 class User extends Model
 {
     private UserId $id;
+
     private string $name;
+
     private Email $email;
+
     private string $image_url;
+
     private string $hash_pasword;
 
-    /**
-     * @param UserId $id
-     * @param string $name
-     * @param Email $email
-     * @param string $image_url
-     * @param string $hash_pasword
-     */
     public function __construct(
         UserId $id,
         string $name,
@@ -48,41 +45,26 @@ class User extends Model
         return new self(UserId::generate(), $name, $email, $image_url, Hash::make($hash_pasword));
     }
 
-    /**
-     * @return UserId
-     */
     public function getId(): UserId
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return Email
-     */
     public function getEmail(): Email
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
     public function getImageUrl(): string
     {
         return $this->image_url;
     }
 
-    /**
-     * @return string
-     */
     public function getHashPassword(): string
     {
         return $this->hash_pasword;

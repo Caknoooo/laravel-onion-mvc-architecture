@@ -26,9 +26,9 @@ class UserException extends Exception
     public function render(): JsonResponse
     {
         return response()->json([
-          'success' => false,
-          'message' => $this->message,
-          'code' => $this->code,
+            'success' => false,
+            'message' => $this->message,
+            'code' => $this->code,
         ], self::$status);
     }
 }

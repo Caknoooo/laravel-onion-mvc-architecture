@@ -12,9 +12,6 @@ class RegisterUserService
 {
     private UserRepositoryInterface $user_repository;
 
-    /**
-     * @param UserRepositoryInterface $user_repository
-     */
     public function __construct(UserRepositoryInterface $user_repository)
     {
         $this->user_repository = $user_repository;

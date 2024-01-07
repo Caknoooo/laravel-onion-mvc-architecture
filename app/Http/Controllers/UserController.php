@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Throwable;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Core\Application\Service\User\RegisterUser\RegisterUserRequest;
 use App\Core\Application\Service\User\RegisterUser\RegisterUserService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class UserController extends Controller
 {
@@ -14,10 +14,10 @@ class UserController extends Controller
     {
         $request->validate(
             [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-      ]
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+            ]
         );
 
         $req = new RegisterUserRequest(
@@ -43,15 +43,16 @@ class UserController extends Controller
     {
         $request->validate(
             [
-            'email' => 'required|email',
-            'password' => 'required',
-      ]
+                'email' => 'required|email',
+                'password' => 'required',
+            ]
         );
 
         $user = DB::table('users')->where('email', $request->input('email'))->first();
 
         if ($user && $user->password === $request->input('password')) {
             $request->session()->put('user', $user);
+
             return redirect()->route('user.login');
         }
 
