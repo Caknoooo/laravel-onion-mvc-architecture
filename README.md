@@ -90,37 +90,27 @@ on `.prettierrc` -> **all files**
 }
 ```
 
-on `.editorconfig` -> **php**
-
-```
-root = true
-
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2 # change it according to your wishes
-indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
-
-[*.md]
-trim_trailing_whitespace = false
-
-[*.{yml,yaml}]
-indent_size = 2
-
-[docker-compose.yml]
-indent_size = 4
-```
-
 #### Run prettier
 
 ```
 yarn prettierrc
 ```
 
-#### Run editorconfig
+#### Run prettier php
+
+on `main` directory, run:
 
 ```
-composer format
+./vendor/bin/pint
+```
+
+### 5. Commit Steps
+
+```
+- run -> ./vendor/bin/pint
+- run -> yarn prettierrc
+- git add .
+- git commit -m (message commit and don't forget to precommit as specified)
+- git push
+
 ```
